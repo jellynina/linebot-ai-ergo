@@ -18,3 +18,6 @@
 ## GITHUB 帳號轉換找不到repo時
 [參見](https://help.github.com/articles/updating-credentials-from-the-osx-keychain/)
 
+
+
+https://s19.aconvert.com/convert/p3r68-cdx67/0o2m8-716lt.mp4

@@ -56,28 +56,58 @@ def handle_message(event):
 
         ### 語意
         flagSt = 0
-        replyMsgList = [TextMessage(text='文字訊息')]
+        replyMsgList = []
+        #replyMsgList = [TextMessage(text='文字訊息')]
+        print('文字訊息')
         for item in seg_list:
             if item =='冷':
                 replyMsgList.append(TextMessage(text='那我們起來動一動吧！'))
-                replyMsgList.append(ImageSendMessage(
-                    original_content_url='https://imgur.com/27Fw9Vl.png',
-                    preview_image_url='https://imgur.com/27Fw9Vl.png'
+                replyMsgList.append(VideoSendMessage(
+                    original_content_url='https://www.dropbox.com/s/zb1b4nq5edwhagr/handworks.mp4?raw=1',
+                    preview_image_url='https://www.dropbox.com/s/9cnc3zsgp8p9cvq/hand-preiv.png?raw=1'
                 ))
                 flagSt+= 1
                 break
             elif item == '分享':
                 replyMsgList.append(TextMessage(text='你可以按影片旁邊的分享按鈕，分享給其他人喔！'))
-                replyMsgList.append(ImageMessage(
-                    original_content_url='https://i.imgur.com/aDA0hpM.gif',
-                    preview_image_url='https://i.imgur.com/aDA0hpM.gif'
+                replyMsgList.append(VideoSendMessage(
+                    original_content_url='https://www.dropbox.com/s/ye17emqs6oudu35/howtoshare.mp4?raw=1',
+                    preview_image_url='https://www.dropbox.com/s/qvpbro608i5s7j7/share-pre.png?raw=1'
+                ))
+                replyMsgList.append(TextMessage(text='你剛剛分享給誰呢？'))
+                flagSt+= 1
+                break
+            elif item == '孫子':
+                replyMsgList.append(TextMessage(text='你現在最想對他說什麼呢？'))
+                flagSt+= 1
+                break
+            elif item == '吃飽':
+                replyMsgList.append(TextMessage(text='要按時吃飯喔，我關心您！'))
+                replyMsgList.append(ImageSendMessage(
+                    original_content_url='https://www.dropbox.com/s/f72crdm0b7wl5in/dinning-17.png?raw=1',
+                    preview_image_url='https://www.dropbox.com/s/f72crdm0b7wl5in/dinning-17.png?raw=1'
+                ))
+                replyMsgList.append(TextMessage(text='可以分享給你孫子喔！'))
+                flagSt+= 1
+                break
+            elif item == '想念':
+                replyMsgList.append(TextMessage(text='雖然他正在忙碌，但我們相信他一定是很關心你的！'))
+                replyMsgList.append(VideoSendMessage(
+                    original_content_url='https://www.dropbox.com/s/4ucq18ceercdejr/happy.mp4?raw=1',
+                    preview_image_url='https://www.dropbox.com/s/kbxcnbvhl6950c1/happy-pre.png?raw=1'
+                ))
+                flagSt+= 1
+                break
+            elif item == '進香團':
+                replyMsgList.append(VideoSendMessage(
+                    original_content_url='https://www.dropbox.com/s/ixi63v8ou4buxw4/masu.mp4?raw=1',
+                    preview_image_url='https://www.dropbox.com/s/opngaoyyt291guk/masu-pre.png?raw=1'
                 ))
                 flagSt+= 1
                 break
         
         if flagSt == 0:
-            replyMsgList.append(TextMessage(text='AI人生好難，爆肝寫程式'))
-        
+            replyMsgList.append(TextMessage(text='AI人生好難，爆肝寫程式，機器人還無法辨識'))
         line_bot_api.reply_message(event.reply_token, replyMsgList)
         
 
@@ -113,29 +143,58 @@ def handle_content_message(event):
     print("|".join(seg_list))
     #msg_reply = "|".join(seg_list)
     ### 語意
-    replyMsgList = [TextMessage(text='收到語音')]
+    print('收到語音')
+    replyMsgList = []
     flagSt = 0
-    for seg in seg_list:
-        print('語音迴圈')
-        if seg =='冷':
+    for item in seg_list:
+        if item =='冷':
             replyMsgList.append(TextMessage(text='那我們起來動一動吧！'))
-            replyMsgList.append(ImageSendMessage(
-                original_content_url='https://imgur.com/27Fw9Vl.png',
-                preview_image_url='https://imgur.com/27Fw9Vl.png'
+            replyMsgList.append(VideoSendMessage(
+                original_content_url='https://www.dropbox.com/s/zb1b4nq5edwhagr/handworks.mp4?raw=1',
+                preview_image_url='https://www.dropbox.com/s/9cnc3zsgp8p9cvq/hand-preiv.png?raw=1'
             ))
-            flagSt += 1
+            flagSt+= 1
             break
-        elif seg == '分享':
+        elif item == '分享':
             replyMsgList.append(TextMessage(text='你可以按影片旁邊的分享按鈕，分享給其他人喔！'))
-            replyMsgList.append(ImageMessage(
-                original_content_url='https://i.imgur.com/aDA0hpM.gif',
-                preview_image_url='https://i.imgur.com/aDA0hpM.gif'
+            replyMsgList.append(VideoSendMessage(
+                original_content_url='https://www.dropbox.com/s/ye17emqs6oudu35/howtoshare.mp4?raw=1',
+                preview_image_url='https://www.dropbox.com/s/qvpbro608i5s7j7/share-pre.png?raw=1'
             ))
-            flagSt += 1
+            replyMsgList.append(TextMessage(text='你剛剛分享給誰呢？'))
+            flagSt+= 1
+            break
+        elif item == '孫子':
+            replyMsgList.append(TextMessage(text='你現在最想對他說什麼呢？'))
+            flagSt+= 1
+            break
+        elif item == '吃飽':
+            replyMsgList.append(TextMessage(text='要按時吃飯喔，我關心您！'))
+            replyMsgList.append(ImageSendMessage(
+                original_content_url='https://www.dropbox.com/s/f72crdm0b7wl5in/dinning-17.png?raw=1',
+                preview_image_url='https://www.dropbox.com/s/f72crdm0b7wl5in/dinning-17.png?raw=1'
+            ))
+            replyMsgList.append(TextMessage(text='可以分享給你孫子喔！'))
+            flagSt+= 1
+            break
+        elif item == '想念':
+            replyMsgList.append(TextMessage(text='雖然他正在忙碌，但我們相信他一定是很關心你的！'))
+            replyMsgList.append(VideoSendMessage(
+                original_content_url='https://www.dropbox.com/s/4ucq18ceercdejr/happy.mp4?raw=1',
+                preview_image_url='https://www.dropbox.com/s/kbxcnbvhl6950c1/happy-pre.png?raw=1'
+            ))
+            flagSt+= 1
+            break
+        elif item == '進香團':
+            replyMsgList.append(VideoSendMessage(
+                original_content_url='https://www.dropbox.com/s/ixi63v8ou4buxw4/masu.mp4?raw=1',
+                preview_image_url='https://www.dropbox.com/s/opngaoyyt291guk/masu-pre.png?raw=1'
+            ))
+            flagSt+= 1
             break
         
     if flagSt == 0:
-        replyMsgList.append(TextMessage(text='AI人生好難，爆肝寫程式'))
+        replyMsgList.append(TextMessage(text='AI人生好難，爆肝寫程式，機器人還無法辨識'))
     
     line_bot_api.reply_message(event.reply_token, replyMsgList)
     
