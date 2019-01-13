@@ -2,6 +2,16 @@
 
 孫仔！哩底堆？
 
+## 安裝python
+
+1. 安裝python
+2. 安裝 pip 套件管理工具
+3. `pip install -r requirement.txt`
+
+
+基本架構
+![](./docs/dev-flow.png)
+
 ## ffmpy 問題
 
 需要利用`ngrok`來架伺服器
@@ -21,3 +31,14 @@
 
 
 https://s19.aconvert.com/convert/p3r68-cdx67/0o2m8-716lt.mp4
+
+
+## Requirements
+
+line-bot-sdk
+flask
+SpeechRecognition
+Flask-Script
+ffmpy
+
+
